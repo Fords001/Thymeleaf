@@ -6,18 +6,24 @@
     <meta charset="UTF-8">
     <title>Person page</title>
     <style>
-        #f{
-        background:pink;
-        border :black 2px solid;
-        margin:auto;
+        #ff{
+          margin:auto;
         margin-top:100px;
+        width:750px;
         }
-        th ,td ,tr {
+
+         th ,td ,tr {
          border :black 2px solid;
          font :30px sans-serif;
          color: green;
          padding :5px;
          text-align: center;
+        }
+        #f1 tr{
+        background:yellow;
+        }
+        #f2 tr{
+        background : pink;
         }
 
 
@@ -27,10 +33,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<table  id="f">
+
+<!--add button for add person-->
+<div id ="ff">
+    <a th:href="@{/addlist}"  class="btn btn-success btn-lg mb-1" >
+        Add Person</a>
+
+    <table  >
 <thead id="f1">
 <tr >
-    <th> ID</th>
     <th> FirstName </th>
     <th> LastName</th>
     <th> Email</th>
@@ -39,7 +50,6 @@
 </thead>
     <tbody id="f2">
     <tr th:each ="persons :${person}">
-     <td th:text="${persons.id}" />
         <td th:text="${persons.firstName}" />
         <td th:text="${persons.lastName}" />
         <td th:text="${persons.email}" />
@@ -49,7 +59,7 @@
  </tbody>
 
 </table>
-
+</div>
 
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
