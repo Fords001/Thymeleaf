@@ -3,18 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>addperson</title>
+    <style>
+   body {
+   background:red;
+   }
+       .container{
+          text-align:center;
+          margin-top:100px;
+
+       }
+
+        .container input{
+        border :black 2px solid;
+         font :30px sans-serif;
+         color: green;
+         padding :5px;
+         margin : 4px;
+         text-align: center;
+         width: 400px;
+         height:50px;
+            border-radius:5px;
+           border:2px solid dark;
+        }
+        .container button{
+        width:400px;
+        height:50px;
+        margin:5px;
+        border-radius:5px;
+          border:2px solid dark;
+          hover-background:green;
+        }
+
+
+    </style>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<div class ="container">
-    <form action="#" th:action="@{/save}"  th:object="${person}" method="POST">
-        <input type="hidden" th:field="*{id}"/>
-        <input type="text" th:field="*{firstName}"/>
-        <input type="text" th:field="*{lastName}"/>
-        <input type="text" th:field="*{email}"/>
+<div class ="container ">
+    <form action="#" th:action="@{/save}"  th:object="${person}" method="POST" >
+        <input  type ="hidden" th:field="*{id}"/> <br>
+        <input  type ="text" th:field="*{firstName}"/><br>
+        <input  type ="text" th:field="*{lastName}"/><br>
+        <input  type ="text" th:field="*{email}"/><br>
         <button type="submit">Save</button>
     </form>
+
+
+
 </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>

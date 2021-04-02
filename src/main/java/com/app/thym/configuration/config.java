@@ -3,11 +3,13 @@ package com.app.thym.configuration;
 import com.app.thym.dao.PersonRepository;
 import com.app.thym.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class config {
@@ -40,5 +42,25 @@ public class config {
         personrepo.save(person3);
         return "redirect:/list";
     }
+    @PostMapping("/update")
+    public String showFormForUpdate(@RequestParam("PersonId") int theId,
+                                    Model theModel) {
+
+        // get the employee from the service
+        Optional<Person> person4= personrepo.findById(theId);
+
+        // set employee as a model attribute to pre-populate the form
+        theModel.addAttribute("person", person4);
+
+        // send over to our form
+        return "createperson";
+    }
+
+    @PostMapping(value="/delete")
+    public String deleteperson(@RequestParam("PersonId1") int theId){
+        personrepo.deleteById(theId);
+        return "redirect:/list";
+    }
+
 
 }
