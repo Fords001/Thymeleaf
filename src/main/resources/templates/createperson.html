@@ -4,54 +4,83 @@
     <meta charset="UTF-8">
     <title>addperson</title>
     <style>
-   body {
-   background:red;
-   }
-       .container{
-          text-align:center;
-          margin-top:100px;
+      body {
+       background:#F0FFF0 !important;
+        }
+        #reo{
+         margin:auto;
+         margin-top:100px;
+          width:450px;
+    }
+        #buttonback1{
+        width:150px;
+        color:green;
+        font:bolder;
+        border:2px black solid ;
+        border-radius:5px;
+        float:left;
+        padding :5px;
+        margin-top : 10px;
 
-       }
+        }
+        #buttonback1:hover{
+        background:#0000CD;
+        }
 
         .container input{
         border :black 2px solid;
          font :30px sans-serif;
          color: green;
          padding :5px;
-         margin : 4px;
+         margin-top : 4px;
+          margin-bottom : 4px;
          text-align: center;
-         width: 400px;
+         width: 450px;
          height:50px;
-            border-radius:5px;
-           border:2px solid dark;
+          border-radius:5px;
+           border:2px solid black;
+          background:pink;
         }
+        input::placeholder{
+         color:#778899;
+         }
+        input:focus::placeholder {
+        color: transparent;
+         }
+
         .container button{
-        width:400px;
+        padding :5px;
+        margin-top : 4px;
+        margin-bottom : 4px;
+        width:450px;
         height:50px;
-        margin:5px;
         border-radius:5px;
-          border:2px solid dark;
-          hover-background:green;
+        border:2px solid black;
+        color:brown;
+        background:#90EE90;
+        font:35px bolder;
+        letter-spacing: 5px;
+
         }
-
-
+        .container button:hover{
+         background:#7CFC00;
+        }
     </style>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<div class ="container ">
+<div id="reo">
+<div class ="container">
     <form action="#" th:action="@{/save}"  th:object="${person}" method="POST" >
         <input  type ="hidden" th:field="*{id}"/> <br>
-        <input  type ="text" th:field="*{firstName}"/><br>
-        <input  type ="text" th:field="*{lastName}"/><br>
-        <input  type ="text" th:field="*{email}"/><br>
+        <input placeholder="Write your firstname" type ="text" th:field="*{firstName}"/><br>
+        <input placeholder="Write your lastname" type ="text" th:field="*{lastName}"/><br>
+        <input placeholder="Write your email" type ="text" th:field="*{email}"/><br>
         <button type="submit">Save</button>
     </form>
-
-
-
+   </div>
+    <a th:href="@{/list}"  class="btn btn-info btn-lg ml-3 " id="buttonback1"> Back</a>
 </div>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
