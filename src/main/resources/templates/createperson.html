@@ -65,6 +65,9 @@
         .container button:hover{
          background:#7CFC00;
         }
+        form div{
+        color:red;
+        }
     </style>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -75,8 +78,11 @@
     <form action="#" th:action="@{/save}"  th:object="${person}" method="POST" >
         <input  type ="hidden" th:field="*{id}"/> <br>
         <input placeholder="Write your firstname" type ="text" th:field="*{firstName}"/><br>
+        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">firstname error</div>
         <input placeholder="Write your lastname" type ="text" th:field="*{lastName}"/><br>
+        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">lastname error</div>
         <input placeholder="Write your email" type ="text" th:field="*{email}"/><br>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email error</div>
         <button type="submit">Save</button>
     </form>
    </div>

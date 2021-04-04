@@ -6,6 +6,8 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Data
@@ -20,18 +22,20 @@ public class Person {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
-    @NotNull
     int id;
-
-    @NotNull
+    
     @Column(name="firstname")
+    @NotBlank(message = "Firstname should not be empty")
+    @Size(min=2 ,max=30 , message="Firstname should be between 2 and 30 characters")
     String firstName;
 
-    @NotNull
     @Column(name="lastname")
+    @NotBlank(message = "Lastname should not be empty")
+    @Size(min=2 ,max=30 , message="Lastname should be between 2 and 30 characters")
     String lastName;
 
-    @NotNull
     @Column(name="email")
+    @NotBlank(message = "Email should not be empty")
+    @Size(min=2 ,max=30 , message="Email should be between 2 and 30 characters")
     String email;
 }
