@@ -9,13 +9,12 @@
       .main_page{
       margin:auto;
       margin-top:120px;
-      width:400px;
+      width:800px;
       text-align:center;
       }
       .main_page h1{
       color:blue;
-      font:50px;
-
+      font-size:4rem;
       }
       #tocreate{
       border:black solid 3px;
@@ -40,15 +39,16 @@
 </head>
 <body>
 <div class="main_page">
-    <h1>Welcome to the main page </h1>
+    <div data-aos="zoom-in"> <h1>Welcome to the main page </h1></div>
     <br>
     <br>
     <br>
 <a th:href="@{/list}"  class="btn btn-info btn-lg" id="tocreate">Create a new person</a>
 </div>
 
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init();
-</script>
+      AOS.init();
+    </script>
 </body>
 </html>
